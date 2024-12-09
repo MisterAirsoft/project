@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes waveAnimation {
+  0% {
+    transform: translateX(0) translateZ(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) translateZ(0) scaleY(0.8);
+  }
+  100% {
+    transform: translateX(-50%) translateZ(0) scaleY(1);
+  }
+}
+
+@keyframes swim {
+  0% {
+    transform: translateX(-100%) scaleX(1);
+  }
+  49% {
+    transform: translateX(100%) scaleX(1);
+  }
+  50% {
+    transform: translateX(100%) scaleX(-1);
+  }
+  99% {
+    transform: translateX(-100%) scaleX(-1);
+  }
+  100% {
+    transform: translateX(-100%) scaleX(1);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply overflow-y-auto overflow-x-hidden;
+}
+
+.wave {
+  @apply absolute bottom-0 left-0 w-[200%] h-full;
+  background: url('./assets/wave.png');
+  animation: waveAnimation 12s linear infinite;
+  transform-origin: center bottom;
+}
+
+.wave2 {
+  animation: waveAnimation 18s linear infinite;
+  opacity: 0.5;
+}
+
+.wave3 {
+  animation: waveAnimation 24s linear infinite;
+  opacity: 0.2;
+}
+
+.animate-swim {
+  animation: swim 15s linear infinite;
+}
+
+.animate-swim-slow {
+  animation: swim 25s linear infinite;
+}
+
+.animate-swim-fast {
+  animation: swim 10s linear infinite;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-blue-900/30;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-white/30 rounded-full transition-colors duration-300;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-white/50;
+}
+
+/* Smooth section transitions */
+.scroll-mt-20 {
+  scroll-margin-top: 5rem;
+}
+
+/* Ocean Background */
+.ocean-background {
+  pointer-events: none;
+  z-index: 0;
+}
